@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Uninventory/.vs/*
+/Uninventory/.vs/Uninventory
+/Uninventory/bin/Debug/net8.0
+/Uninventory/obj
+/Uninventory/Properties
