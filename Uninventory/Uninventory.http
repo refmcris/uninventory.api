@@ -1,0 +1,6 @@
+@Uninventory_HostAddress = http://localhost:5026
+
+GET {{Uninventory_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
