@@ -8,5 +8,7 @@
     public string? UserRole { get; set; }
     public string? UserPassword { get; set; }
     public DateTime? CreatedAt { get; set; }
+
+    public bool? Delete { get; set; }
   }
 }
