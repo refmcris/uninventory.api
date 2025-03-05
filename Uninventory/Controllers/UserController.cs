@@ -24,9 +24,15 @@ namespace Uninventory.Controllers
     }
 
     [HttpGet("users")]
-    public async Task<IEnumerable<UserDTO>> GetUsers()
+    public async Task<IEnumerable<UserDTO>> GetUsers(int? UserId)
     {
-      return await _userService.GetUsers();
+      return await _userService.GetUsers(UserId);
+    }
+
+    [HttpGet("users/{UserId}")]
+    public async Task<UserDTO> GetUser(int UserId)
+    {
+      return await _userService.GetUser(UserId);
     }
 
 

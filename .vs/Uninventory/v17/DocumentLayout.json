@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\persistence\\uninventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\persistence\\uninventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\models\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\models\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\persistence\\uninventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\persistence\\uninventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +42,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UninventoryDBContext.cs",
               "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Persistence\\UninventoryDBContext.cs",
               "RelativeDocumentMoniker": "Uninventory\\Persistence\\UninventoryDBContext.cs",
@@ -61,40 +61,40 @@
               "RelativeDocumentMoniker": "Uninventory\\Services\\UserService.cs",
               "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\UserService.cs",
               "RelativeToolTip": "Uninventory\\Services\\UserService.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAgwCwAAAAxAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAewDkAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T04:07:00.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Uninventory\\Controllers\\UserController.cs",
               "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Controllers\\UserController.cs",
               "RelativeToolTip": "Uninventory\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAFAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T03:59:25.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "IUserService.cs",
               "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "Uninventory\\Interfaces\\IUserService.cs",
               "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Interfaces\\IUserService.cs",
               "RelativeToolTip": "Uninventory\\Interfaces\\IUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAwAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T03:58:22.106Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Models\\Users\\UserDTO.cs",
               "RelativeDocumentMoniker": "Uninventory\\Models\\Users\\UserDTO.cs",

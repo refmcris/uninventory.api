@@ -15,6 +15,20 @@ namespace Uninventory.Services
       _context = context;
     }
 
+
+    private UserDTO ToUserDTO(User ur)
+    {
+      return new UserDTO
+      {
+        UserId = ur.UserId,
+        FullName = ur.FullName,
+        Email = ur.Email,
+        UserRole = ur.UserRole,
+        UserPassword = ur.UserPassword,
+        CreatedAt = ur.CreatedAt
+      };
+    }
+
     public async Task<UserDTO> AddUser(UserDTO add)
     {
       var user = new User
@@ -28,30 +42,25 @@ namespace Uninventory.Services
 
       await _context.SaveChangesAsync();
 
-      return new UserDTO
-      {
-        UserId = user.UserId, 
-        FullName = user.FullName,
-        Email = user.Email,
-        UserRole = user.UserRole,
-        UserPassword = user.UserPassword,
-        CreatedAt = user.CreatedAt
-      };
+      return ToUserDTO(user);
+     
 
 
     }
-    public async Task<IEnumerable<UserDTO>> GetUsers()
+    public async Task<IEnumerable<UserDTO>> GetUsers(int? UserId)
     {
       var users = await _context.User.ToListAsync();
-      return users.Select(user => new UserDTO
+      return users.Select(ToUserDTO).ToList();
+    }
+
+    public async Task<UserDTO> GetUser(int UserId)
+    {
+       var users = await GetUsers(UserId);
+      if (!users.Any())
       {
-        UserId = user.UserId,
-        FullName = user.FullName,
-        Email = user.Email,
-        UserRole = user.UserRole,
-        UserPassword = user.UserPassword,
-        CreatedAt = user.CreatedAt
-      });
+        throw new Exception($"El usuario {UserId} no está registrado.");
+      }
+      return users.First();
     }
   }
 }

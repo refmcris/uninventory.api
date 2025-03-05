@@ -5,7 +5,9 @@ namespace Uninventory.Interfaces
   public interface IUserService
   {
     public Task<UserDTO> AddUser(UserDTO add);
-    public Task <IEnumerable<UserDTO>> GetUsers();
+    public Task <IEnumerable<UserDTO>> GetUsers(int? UserId);
+
+    public Task<UserDTO> GetUser(int UserId);
 
   }
 }
