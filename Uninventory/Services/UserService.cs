@@ -120,5 +120,18 @@ namespace Uninventory.Services
 
       return await GetUser(UserId);
     }
+
+    public async Task<UserDTO> userLogin(string email, string password)
+    {
+      var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email && u.UserPassword == password);
+
+      if (user == null)
+      {
+        throw new Exception("Usuario o contraseña incorrectos.");
+      }
+
+      return ToUserDTO(user);
+    }
+
   }
 }
