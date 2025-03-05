@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Uninventory.DBContext.Models;
+namespace Uninventory.Persistence.Models;
 
 public partial class User
 {
@@ -16,4 +16,6 @@ public partial class User
     public string? UserRole { get; set; }
 
     public DateTime? CreatedAt { get; set; }
+
+    public bool? Delete { get; set; }
 }

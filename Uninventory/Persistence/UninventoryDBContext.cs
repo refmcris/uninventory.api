@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
-using Uninventory.DBContext.Models;
+using Uninventory.Persistence.Models;
 
-namespace Uninventory.DBContext;
+namespace Uninventory.Persistence;
 
 public partial class UninventoryDBContext : DbContext
 {
@@ -18,7 +18,6 @@ public partial class UninventoryDBContext : DbContext
     }
 
     public virtual DbSet<User> User { get; set; }
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -39,6 +38,9 @@ public partial class UninventoryDBContext : DbContext
                 .HasDefaultValueSql("current_timestamp()")
                 .HasColumnType("timestamp")
                 .HasColumnName("createdAt");
+            entity.Property(e => e.Delete)
+                .HasDefaultValueSql("'0'")
+                .HasColumnName("delete");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .HasColumnName("email");

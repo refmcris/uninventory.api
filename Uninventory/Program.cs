@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Uninventory.DBContext;
 using Uninventory.Interfaces;
+using Uninventory.Persistence;
 using Uninventory.Services;
 
 var builder = WebApplication.CreateBuilder(args);

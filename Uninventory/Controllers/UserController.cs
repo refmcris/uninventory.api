@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Uninventory.Persistence;
 using Uninventory.Interfaces;
 using Uninventory.Models.Users;
 
@@ -30,11 +31,22 @@ namespace Uninventory.Controllers
     }
 
     [HttpGet("users/{UserId}")]
-    public async Task<UserDTO> GetUser(int UserId)
+    public async Task<UserDTO> GetUserById(int UserId)
     {
       return await _userService.GetUser(UserId);
     }
 
+    [HttpPut("users/{UserId}")]
+    public async Task<UserDTO> SetUser(int UserId, UserDTO userDTO)
+    {
+      return await _userService.SetUser(UserId, userDTO);
+    }
+
+    [HttpDelete("users/{UserId}")]
+    public async Task<UserDTO> DeleteUser(int UserId)
+    {
+      return await _userService.DeleteUser(UserId);
+    }
 
 
 

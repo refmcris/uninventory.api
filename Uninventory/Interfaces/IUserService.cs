@@ -9,5 +9,9 @@ namespace Uninventory.Interfaces
 
     public Task<UserDTO> GetUser(int UserId);
 
+    public Task<UserDTO> SetUser(int UserId, UserDTO userDTO);
+
+    public Task<UserDTO> DeleteUser(int UserId);
+
   }
 }
