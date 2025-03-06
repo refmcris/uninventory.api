@@ -23,7 +23,8 @@ namespace Uninventory.Services
         UserId = ur.UserId,
         FullName = ur.FullName,
         Email = ur.Email,
-        UserRole = ur.UserRole,
+        UserRoleId = ur.UserRole,
+        UserRoleName = ur.UserRoleNavigation.Name,
         UserPassword = ur.UserPassword,
         CreatedAt = ur.CreatedAt,
         Delete = ur.Delete
@@ -36,7 +37,7 @@ namespace Uninventory.Services
       {
         FullName = add.FullName,
         Email = add.Email,
-        UserRole = add.UserRole,
+        UserRole = add.UserRoleId,
         UserPassword = add.UserPassword
       };
       await _context.User.AddAsync(user);
@@ -51,7 +52,9 @@ namespace Uninventory.Services
     public async Task<IEnumerable<UserDTO>> GetUsers(int? UserId)
     {
 
-      var query = _context.User.AsQueryable();
+      var query = _context.User
+        .Include(u => u.UserRoleNavigation)
+        .AsQueryable();
 
       if (UserId.HasValue)
       {
@@ -96,7 +99,7 @@ namespace Uninventory.Services
       }
       user.FullName = userDTO.FullName ?? user.FullName;
       user.Email = userDTO.Email ?? user.Email;
-      user.UserRole = userDTO.UserRole ?? user.UserRole;
+      user.UserRole = userDTO.UserRoleId ?? user.UserRole;
       user.UserPassword = userDTO.UserPassword ?? user.UserPassword;
 
 

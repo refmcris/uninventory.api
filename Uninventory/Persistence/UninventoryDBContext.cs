@@ -17,7 +17,13 @@ public partial class UninventoryDBContext : DbContext
     {
     }
 
+    public virtual DbSet<Categories> Categories { get; set; }
+
     public virtual DbSet<Equipment> Equipment { get; set; }
+
+    public virtual DbSet<Loans> Loans { get; set; }
+
+    public virtual DbSet<Role> Role { get; set; }
 
     public virtual DbSet<User> User { get; set; }
 
@@ -28,11 +34,23 @@ public partial class UninventoryDBContext : DbContext
             .UseCollation("utf8mb4_general_ci")
             .HasCharSet("utf8mb4");
 
+        modelBuilder.Entity<Categories>(entity =>
+        {
+            entity.HasKey(e => e.CategoryId).HasName("PRIMARY");
+
+            entity.ToTable("categories");
+
+            entity.Property(e => e.CategoryId).HasColumnType("int(11)");
+            entity.Property(e => e.Name).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<Equipment>(entity =>
         {
             entity.HasKey(e => e.EquipmentId).HasName("PRIMARY");
 
             entity.ToTable("equipment");
+
+            entity.HasIndex(e => e.CategoryId, "FK_equipment_categories");
 
             entity.Property(e => e.EquipmentId)
                 .HasColumnType("int(11)")
@@ -52,6 +70,51 @@ public partial class UninventoryDBContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("status");
             entity.Property(e => e.WarrantyDate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Category).WithMany(p => p.Equipment)
+                .HasForeignKey(d => d.CategoryId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_equipment_categories");
+        });
+
+        modelBuilder.Entity<Loans>(entity =>
+        {
+            entity.HasKey(e => e.LoanId).HasName("PRIMARY");
+
+            entity.ToTable("loans");
+
+            entity.HasIndex(e => e.EquipmentId, "FK_loans_equipment");
+
+            entity.HasIndex(e => e.UserId, "FK_loans_user");
+
+            entity.Property(e => e.LoanId).HasColumnType("int(11)");
+            entity.Property(e => e.EndDate).HasColumnType("datetime");
+            entity.Property(e => e.EquipmentId).HasColumnType("int(11)");
+            entity.Property(e => e.StartDate)
+                .HasDefaultValueSql("current_timestamp()")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Status).HasDefaultValueSql("'0'");
+            entity.Property(e => e.UserId).HasColumnType("int(11)");
+
+            entity.HasOne(d => d.Equipment).WithMany(p => p.Loans)
+                .HasForeignKey(d => d.EquipmentId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_loans_equipment");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Loans)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_loans_user");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.RoleId).HasName("PRIMARY");
+
+            entity.ToTable("role");
+
+            entity.Property(e => e.RoleId).HasColumnType("int(11)");
+            entity.Property(e => e.Name).HasMaxLength(50);
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -59,6 +122,8 @@ public partial class UninventoryDBContext : DbContext
             entity.HasKey(e => e.UserId).HasName("PRIMARY");
 
             entity.ToTable("user");
+
+            entity.HasIndex(e => e.UserRole, "FK_user_role");
 
             entity.Property(e => e.UserId)
                 .HasColumnType("int(11)")
@@ -80,8 +145,12 @@ public partial class UninventoryDBContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("userPassword");
             entity.Property(e => e.UserRole)
-                .HasMaxLength(50)
+                .HasColumnType("int(11)")
                 .HasColumnName("userRole");
+
+            entity.HasOne(d => d.UserRoleNavigation).WithMany(p => p.User)
+                .HasForeignKey(d => d.UserRole)
+                .HasConstraintName("FK_user_role");
         });
 
         OnModelCreatingPartial(modelBuilder);

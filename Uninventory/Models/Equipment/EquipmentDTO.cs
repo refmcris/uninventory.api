@@ -10,6 +10,8 @@
     public DateTime? PurchaseDate { get; set; }
     public DateTime? WarrantyDate { get; set; }
     public int CategoryId { get; set; }
+
+    public string? CategoryName { get; set; }
     public DateTime CreatedAt { get; set; }
   }
 }

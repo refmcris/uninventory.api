@@ -33,5 +33,10 @@ namespace Uninventory.Controllers
       return await _equipmentService.GetEquipment(EquipmentId);
     }
 
+    [HttpPut("equipment/{EquipmentId}")]
+    public async Task<EquipmentDTO> SetEquipment(int EquipmentId, EquipmentDTO equipmentDTO)
+    {
+      return await _equipmentService.SetEquipment(EquipmentId, equipmentDTO);
+    }
   }
 }

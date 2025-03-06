@@ -13,9 +13,13 @@ public partial class User
 
     public string? UserPassword { get; set; }
 
-    public string? UserRole { get; set; }
+    public int? UserRole { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
     public bool? Delete { get; set; }
+
+    public virtual ICollection<Loans> Loans { get; set; } = new List<Loans>();
+
+    public virtual Role? UserRoleNavigation { get; set; }
 }
