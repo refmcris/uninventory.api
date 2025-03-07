@@ -5,11 +5,12 @@ namespace Uninventory.Interfaces
   public interface ILoanService
   {
 
-    Task<LoansDTO> AddLoan(LoansDTO loan);
-    //Task<IEnumerable<LoansDTO>> GetLoans();
+    Task<LoansDTO> AddLoan(LoansDTO add);
+    Task<LoansDTO> UpdateLoan(int id);
+    Task<IEnumerable<LoansDTO>> GetLoans(int? loanId);
     //Task<LoansDTO> GetLoan(int id);
-   
-    //Task<LoansDTO> UpdateLoan(int id, LoansDTO loan);
+
+
     //Task<LoansDTO> DeleteLoan(int id);
   }
 }
