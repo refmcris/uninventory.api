@@ -26,6 +26,10 @@ namespace Uninventory.Services
         CategoryName = eq.Category.Name,
         SerialNumber = eq.SerialNumber,
         Status = eq.Status,
+        Model = eq.Model,
+        Description = eq.Description,
+        Specifications = eq.Specifications,
+        Image = eq.Image,
         Location = eq.Location,
         PurchaseDate = eq.PurchaseDate,
         WarrantyDate = eq.WarrantyDate,
@@ -41,6 +45,10 @@ namespace Uninventory.Services
         CategoryId = add.CategoryId,
         SerialNumber = add.SerialNumber,
         Status = add.Status,
+        Model = add.Model,
+        Description = add.Description,
+        Specifications = add.Specifications,
+        Image = add.Image,
         Location = add.Location,
         PurchaseDate = add.PurchaseDate,
         WarrantyDate = add.WarrantyDate,
@@ -52,7 +60,7 @@ namespace Uninventory.Services
 
       await _context.SaveChangesAsync();
 
-      return ToEquipmentDTO(equipment);
+      return await GetEquipment(equipment.EquipmentId);
     }
 
     public async Task<IEnumerable<EquipmentDTO>> GetEquipments(int? EquipmentId)
@@ -93,6 +101,10 @@ namespace Uninventory.Services
       equipment.CategoryId = equipmentDTO.CategoryId;
       equipment.SerialNumber = equipmentDTO.SerialNumber ?? equipment.SerialNumber;
       equipment.Status = equipmentDTO.Status ?? equipment.Status;
+      equipment.Model = equipmentDTO.Model ?? equipment.Model;
+      equipment.Description = equipmentDTO.Description ?? equipment.Description;
+      equipment.Specifications = equipmentDTO.Specifications ?? equipment.Specifications;
+      equipment.Image = equipmentDTO.Image ?? equipment.Image;
       equipment.Location = equipmentDTO.Location ?? equipment.Location;
       equipment.PurchaseDate = equipmentDTO.PurchaseDate ?? equipment.PurchaseDate;
       equipment.WarrantyDate = equipmentDTO.WarrantyDate ?? equipment.WarrantyDate;

@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Uninventory.Common.Exceptions;
 using Uninventory.Interfaces;
+using Uninventory.Middleware;
 using Uninventory.Persistence;
 using Uninventory.Services;
 
@@ -21,6 +23,8 @@ builder.Services.AddScoped<IEquipmentService, EquipmentService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserRole, UserRoleService>();
 builder.Services.AddScoped<ILoanService, LoanService>();
+builder.Services.AddScoped<IAuthService , AuthService>();
+builder.Services.AddScoped<ISessionService , SessionService>();
 
 
 
@@ -29,9 +33,10 @@ builder.Services.AddCors(options =>
 {
   options.AddPolicy("AllowAnyOrigin", policy =>
   {
-    policy.AllowAnyOrigin()  // Allows any origin
-          .AllowAnyMethod()  // Allows any HTTP method (GET, POST, etc.)
-          .AllowAnyHeader(); // Allows any header
+    policy.SetIsOriginAllowed(_ => true)
+          .AllowAnyMethod()
+          .AllowAnyHeader()
+          .AllowCredentials();
   });
 });
 
@@ -46,6 +51,10 @@ if (app.Environment.IsDevelopment())
   app.UseSwagger();
   app.UseSwaggerUI();
 }
+
+//middlewares
+//app.UseMiddleware<SessionMiddleware>();
+//app.UseMiddleware<ExceptionsMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -76,5 +76,20 @@ namespace Uninventory.Services
       return loans.Select(ToLoanDTO).ToList();
     }
 
+    public async Task<IEnumerable<LoansDTO>> GetLoansByUser(int? UserId) 
+    { 
+      var query = _context.Loans
+        .Include(l => l.Equipment)
+        .Include(u => u.User)
+        .AsQueryable();
+      if (UserId.HasValue)
+      {
+        query = query.Where(l => l.UserId == UserId.Value);
+      }
+      var loans = await query.ToListAsync();
+
+      return loans.Select(ToLoanDTO).ToList();
+    }
+
   }
 }

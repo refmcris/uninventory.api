@@ -13,6 +13,6 @@ namespace Uninventory.Interfaces
 
     public Task<UserDTO> DeleteUser(int UserId);
 
-    public Task<UserDTO> userLogin(string email, string password);
+    public Task<UserDTO> userLogin(string email, UserDTO add);
   }
 }

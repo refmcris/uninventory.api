@@ -3,16 +3,20 @@ using Uninventory.Persistence;
 using Uninventory.Interfaces;
 using Uninventory.Models.Users;
 using Uninventory.Persistence.Models;
+using Uninventory.Models.Session;
+using Uninventory.Common.Exceptions;
 
 namespace Uninventory.Services
 {
   public class UserService : IUserService
   {
     private readonly UninventoryDBContext _context;
+    private readonly IAuthService authService;
 
-    public UserService(UninventoryDBContext context)
+    public UserService(UninventoryDBContext context,IAuthService authService)
     {
-      _context = context;
+      this._context = context;
+      this.authService = authService;
     }
 
 
@@ -99,7 +103,7 @@ namespace Uninventory.Services
       }
       user.FullName = userDTO.FullName ?? user.FullName;
       user.Email = userDTO.Email ?? user.Email;
-      user.UserRole = userDTO.UserRoleId ?? user.UserRole;
+      user.UserRole = userDTO.UserRoleId;
       user.UserPassword = userDTO.UserPassword ?? user.UserPassword;
 
 
@@ -124,16 +128,27 @@ namespace Uninventory.Services
       return await GetUser(UserId);
     }
 
-    public async Task<UserDTO> userLogin(string email, string password)
+    public async Task<UserDTO> userLogin(string email, UserDTO login)
     {
-      var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email && u.UserPassword == password);
+      var session = await this.authService.NewSession(new NewSessionRequestDTO()
+      {
+        email = email,
+        password = login.UserPassword,
+      });
+      var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email);
 
       if (user == null)
       {
-        throw new Exception("Usuario o contraseña incorrectos.");
+        throw new ServiceException("Usuario no encontrado");
       }
 
-      return ToUserDTO(user);
+      return new UserDTO()
+      {
+        UserId = user.UserId,
+        FullName = user.FullName,
+        Email = user.Email,
+        UserRoleId = user.UserRole
+      };
     }
 
   }

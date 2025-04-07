@@ -27,6 +27,9 @@ public partial class UninventoryDBContext : DbContext
 
     public virtual DbSet<User> User { get; set; }
 
+    public virtual DbSet<Usersession> Usersession { get; set; }
+
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -60,12 +63,24 @@ public partial class UninventoryDBContext : DbContext
                 .ValueGeneratedOnAddOrUpdate()
                 .HasDefaultValueSql("current_timestamp()")
                 .HasColumnType("timestamp");
+            entity.Property(e => e.Description)
+                .HasMaxLength(100)
+                .HasColumnName("description");
+            entity.Property(e => e.Image)
+                .HasMaxLength(200)
+                .HasColumnName("image");
             entity.Property(e => e.Location).HasMaxLength(50);
+            entity.Property(e => e.Model)
+                .HasMaxLength(30)
+                .HasColumnName("model");
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.PurchaseDate).HasColumnType("datetime");
             entity.Property(e => e.SerialNumber)
                 .HasMaxLength(50)
                 .HasColumnName("serialNumber");
+            entity.Property(e => e.Specifications)
+                .HasMaxLength(100)
+                .HasColumnName("specifications");
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
                 .HasColumnName("status");
@@ -151,6 +166,46 @@ public partial class UninventoryDBContext : DbContext
             entity.HasOne(d => d.UserRoleNavigation).WithMany(p => p.User)
                 .HasForeignKey(d => d.UserRole)
                 .HasConstraintName("FK_user_role");
+        });
+
+        modelBuilder.Entity<Usersession>(entity =>
+        {
+            entity.HasKey(e => e.SessionId).HasName("PRIMARY");
+
+            entity.ToTable("usersession");
+
+            entity.HasIndex(e => e.UserId, "FK_usersession_user");
+
+            entity.HasIndex(e => e.InsertBy, "FK_usersession_user_2");
+
+            entity.Property(e => e.SessionId).HasColumnName("sessionId");
+            entity.Property(e => e.ExpiresOn)
+                .HasColumnType("datetime")
+                .HasColumnName("expiresOn");
+            entity.Property(e => e.Inactive).HasColumnName("inactive");
+            entity.Property(e => e.InsertBy)
+                .HasColumnType("int(11)")
+                .HasColumnName("insertBy");
+            entity.Property(e => e.InsertOn)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("current_timestamp()")
+                .HasColumnType("timestamp")
+                .HasColumnName("insertOn");
+            entity.Property(e => e.Token)
+                .HasMaxLength(255)
+                .HasColumnName("token");
+            entity.Property(e => e.UserId)
+                .HasColumnType("int(11)")
+                .HasColumnName("userId");
+
+            entity.HasOne(d => d.InsertByNavigation).WithMany(p => p.UsersessionInsertByNavigation)
+                .HasForeignKey(d => d.InsertBy)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_usersession_user_2");
+
+            entity.HasOne(d => d.User).WithMany(p => p.UsersessionUser)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_usersession_user");
         });
 
         OnModelCreatingPartial(modelBuilder);

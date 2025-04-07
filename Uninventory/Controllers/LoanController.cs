@@ -29,6 +29,10 @@ namespace Uninventory.Controllers
     {
       return await _loanService.GetLoans(loanId);
     }
-
+    [HttpGet("loan/user/{userId}")]
+    public async Task<IEnumerable<LoansDTO>> GetLoansByUser(int? userId)
+    {
+      return await _loanService.GetLoansByUser(userId);
+    }
   }
 }

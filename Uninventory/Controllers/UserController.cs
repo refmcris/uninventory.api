@@ -48,10 +48,10 @@ namespace Uninventory.Controllers
       return await _userService.DeleteUser(UserId);
     }
 
-    [HttpPost("users/login")]
-    public async Task<UserDTO> userLogin(string email, string password)
+    [HttpPost("users/{email}/login")]
+    public async Task<UserDTO> userLogin(string email, UserDTO add)
     {
-      return await _userService.userLogin(email, password);
+      return await _userService.userLogin(email, add);
     }
 
 
