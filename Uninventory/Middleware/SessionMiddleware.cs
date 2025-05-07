@@ -75,7 +75,7 @@ namespace Uninventory.Middleware
       {
         sessionId = sessionId,
         sessionToken = current.Token,
-        UserId = current.UserId,
+        UserId = current.UserId ?? user.UserId,
         UserName = user.FullName,
         UserRole = user.UserRole
       });

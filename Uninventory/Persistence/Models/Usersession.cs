@@ -7,7 +7,7 @@ public partial class Usersession
 {
     public Guid SessionId { get; set; }
 
-    public int UserId { get; set; }
+    public int? UserId { get; set; }
 
     public string Token { get; set; } = null!;
 

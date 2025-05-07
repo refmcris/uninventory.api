@@ -25,7 +25,10 @@ namespace Uninventory.Services
       return new UserDTO
       {
         UserId = ur.UserId,
+        StudentCode = ur.StudentCode,
         FullName = ur.FullName,
+        LastName = ur.LastName,
+        Phone = ur.Phone,
         Email = ur.Email,
         UserRoleId = ur.UserRole,
         UserRoleName = ur.UserRoleNavigation.Name,
@@ -101,10 +104,11 @@ namespace Uninventory.Services
       {
         throw new Exception($"El usuario {UserId} no está registrado.");
       }
-      user.FullName = userDTO.FullName ?? user.FullName;
+
+
+      user.StudentCode = userDTO.StudentCode;
+      user.Phone = userDTO.Phone ?? user.Phone;
       user.Email = userDTO.Email ?? user.Email;
-      user.UserRole = userDTO.UserRoleId;
-      user.UserPassword = userDTO.UserPassword ?? user.UserPassword;
 
 
       await _context.SaveChangesAsync();

@@ -30,7 +30,6 @@ public partial class UninventoryDBContext : DbContext
     public virtual DbSet<Usersession> Usersession { get; set; }
 
 
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
@@ -154,8 +153,17 @@ public partial class UninventoryDBContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("email");
             entity.Property(e => e.FullName)
-                .HasMaxLength(50)
+                .HasMaxLength(15)
                 .HasColumnName("fullName");
+            entity.Property(e => e.LastName)
+                .HasMaxLength(15)
+                .HasColumnName("lastName");
+            entity.Property(e => e.Phone)
+                .HasMaxLength(10)
+                .HasColumnName("phone");
+            entity.Property(e => e.StudentCode)
+                .HasColumnType("int(11)")
+                .HasColumnName("studentCode");
             entity.Property(e => e.UserPassword)
                 .HasMaxLength(50)
                 .HasColumnName("userPassword");

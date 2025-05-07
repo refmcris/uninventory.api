@@ -67,7 +67,7 @@ namespace Uninventory.Services
       {
         sessionId = newSession.SessionId.ToString(),
         sessionToken = newSession.Token,
-        UserId = newSession.UserId,
+        UserId = newSession.UserId ?? user.UserId,
         UserName= user.FullName,
         UserRole=user.UserRole
       });

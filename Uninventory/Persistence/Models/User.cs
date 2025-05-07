@@ -7,7 +7,13 @@ public partial class User
 {
     public int UserId { get; set; }
 
+    public int StudentCode { get; set; }
+
     public string? FullName { get; set; }
+
+    public string? LastName { get; set; }
+
+    public string? Phone { get; set; }
 
     public string? Email { get; set; }
 
