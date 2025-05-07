@@ -22,4 +22,16 @@ public partial class Equipment
     public DateTime? WarrantyDate { get; set; }
 
     public DateTime CreatedAt { get; set; }
+
+    public string? Model { get; set; }
+
+    public string? Description { get; set; }
+
+    public string? Specifications { get; set; }
+
+    public string? Image { get; set; }
+
+    public virtual Categories Category { get; set; } = null!;
+
+    public virtual ICollection<Loans> Loans { get; set; } = new List<Loans>();
 }

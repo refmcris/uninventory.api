@@ -23,8 +23,13 @@ namespace Uninventory.Services
         EquipmentId = eq.EquipmentId,
         Name = eq.Name,
         CategoryId = eq.CategoryId,
+        CategoryName = eq.Category.Name,
         SerialNumber = eq.SerialNumber,
         Status = eq.Status,
+        Model = eq.Model,
+        Description = eq.Description,
+        Specifications = eq.Specifications,
+        Image = eq.Image,
         Location = eq.Location,
         PurchaseDate = eq.PurchaseDate,
         WarrantyDate = eq.WarrantyDate,
@@ -40,6 +45,10 @@ namespace Uninventory.Services
         CategoryId = add.CategoryId,
         SerialNumber = add.SerialNumber,
         Status = add.Status,
+        Model = add.Model,
+        Description = add.Description,
+        Specifications = add.Specifications,
+        Image = add.Image,
         Location = add.Location,
         PurchaseDate = add.PurchaseDate,
         WarrantyDate = add.WarrantyDate,
@@ -51,12 +60,15 @@ namespace Uninventory.Services
 
       await _context.SaveChangesAsync();
 
-      return ToEquipmentDTO(equipment);
+      return await GetEquipment(equipment.EquipmentId);
     }
 
     public async Task<IEnumerable<EquipmentDTO>> GetEquipments(int? EquipmentId)
     {
-      var query = _context.Equipment.AsQueryable();
+      var query = _context.Equipment
+        .Include(e => e.Category)
+        .AsQueryable();
+
 
       if (EquipmentId.HasValue)
       {
@@ -75,6 +87,33 @@ namespace Uninventory.Services
         throw new Exception($"El equipo {equipmentId} no está registrado.");
       }
       return equipments.First();
+    }
+    public async Task<EquipmentDTO> SetEquipment(int equipmentId, EquipmentDTO equipmentDTO)
+    {
+      var equipment = await _context.Equipment.FirstOrDefaultAsync(e => e.EquipmentId == equipmentId);
+
+      if (equipment == null)
+      {
+        throw new Exception($"El equipo {equipmentId} no está registrado.");
+      }
+
+      equipment.Name = equipmentDTO.Name ?? equipment.Name;
+      equipment.CategoryId = equipmentDTO.CategoryId;
+      equipment.SerialNumber = equipmentDTO.SerialNumber ?? equipment.SerialNumber;
+      equipment.Status = equipmentDTO.Status ?? equipment.Status;
+      equipment.Model = equipmentDTO.Model ?? equipment.Model;
+      equipment.Description = equipmentDTO.Description ?? equipment.Description;
+      equipment.Specifications = equipmentDTO.Specifications ?? equipment.Specifications;
+      equipment.Image = equipmentDTO.Image ?? equipment.Image;
+      equipment.Location = equipmentDTO.Location ?? equipment.Location;
+      equipment.PurchaseDate = equipmentDTO.PurchaseDate ?? equipment.PurchaseDate;
+      equipment.WarrantyDate = equipmentDTO.WarrantyDate ?? equipment.WarrantyDate;
+
+      await _context.SaveChangesAsync();
+
+      return await GetEquipment(equipmentId); 
+
+
     }
 
   }
