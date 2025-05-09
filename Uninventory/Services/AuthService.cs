@@ -69,7 +69,8 @@ namespace Uninventory.Services
         sessionToken = newSession.Token,
         UserId = newSession.UserId ?? user.UserId,
         UserName= user.FullName,
-        UserRole=user.UserRole
+        UserRole=user.UserRole,
+        StudentCode = user.StudentCode,
       });
 
       return newSessionDTO;

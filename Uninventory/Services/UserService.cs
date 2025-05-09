@@ -31,8 +31,8 @@ namespace Uninventory.Services
         Phone = ur.Phone,
         Email = ur.Email,
         UserRoleId = ur.UserRole,
-        UserRoleName = ur.UserRoleNavigation.Name,
-        UserPassword = ur.UserPassword,
+        //UserRoleName = ur.UserRoleNavigation.Name,
+        //UserPassword = ur.UserPassword,
         CreatedAt = ur.CreatedAt,
         Delete = ur.Delete
       };
@@ -42,11 +42,15 @@ namespace Uninventory.Services
     {
       var user = new User
       {
+        StudentCode = add.StudentCode,
+        Phone = add.Phone,
+        LastName = add.LastName,
         FullName = add.FullName,
         Email = add.Email,
         UserRole = add.UserRoleId,
         UserPassword = add.UserPassword
       };
+      Console.WriteLine(user);
       await _context.User.AddAsync(user);
 
       await _context.SaveChangesAsync();
@@ -141,18 +145,9 @@ namespace Uninventory.Services
       });
       var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email);
 
-      if (user == null)
-      {
-        throw new ServiceException("Usuario no encontrado");
-      }
+     
 
-      return new UserDTO()
-      {
-        UserId = user.UserId,
-        FullName = user.FullName,
-        Email = user.Email,
-        UserRoleId = user.UserRole
-      };
+      return await GetUser(user.UserId);
     }
 
   }
