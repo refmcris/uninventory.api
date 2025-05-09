@@ -29,19 +29,22 @@ builder.Services.AddScoped<ISessionService , SessionService>();
 
 
 
-builder.Services.AddCors(options =>
-{
-  options.AddPolicy("AllowAnyOrigin", policy =>
-  {
-    policy.SetIsOriginAllowed(_ => true)
-          .AllowAnyMethod()
-          .AllowAnyHeader()
-          .AllowCredentials();
-  });
-});
 
 
 var app = builder.Build();
+
+app.UseCors(builer =>
+{
+  builer
+  .AllowAnyOrigin()
+  .AllowAnyMethod()
+  .AllowAnyHeader()
+  .WithExposedHeaders("session-id");
+});
+
+
+
+
 
 
 
@@ -52,16 +55,21 @@ if (app.Environment.IsDevelopment())
   app.UseSwaggerUI();
 }
 
-//middlewares
-//app.UseMiddleware<SessionMiddleware>();
-//app.UseMiddleware<ExceptionsMiddleware>();
 
-app.UseHttpsRedirection();
+
+
+
+
 
 app.UseCors("AllowAnyOrigin");
 
-app.UseAuthorization();
+//middlewares
+app.UseMiddleware<ExceptionsMiddleware>();
+app.UseMiddleware<SessionMiddleware>();
 
+
+app.UseAuthorization();
+app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();

@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\middleware\\exceptionsmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\middleware\\exceptionsmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,22 +40,35 @@
               "RelativeDocumentMoniker": "Uninventory\\Program.cs",
               "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Program.cs",
               "RelativeToolTip": "Uninventory\\Program.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAwwEMAAAAAAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAIAwwEEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T02:20:31.326Z",
+              "WhenOpened": "2025-05-09T20:10:49.098Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Uninventory\\Services\\UserService.cs",
-              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\UserService.cs",
-              "RelativeToolTip": "Uninventory\\Services\\UserService.cs",
-              "ViewState": "AQIAAGYAAAAAAAAAAAApwJAAAAAHAAAA",
+              "Title": "ExceptionsMiddleware.cs",
+              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Middleware\\ExceptionsMiddleware.cs",
+              "RelativeDocumentMoniker": "Uninventory\\Middleware\\ExceptionsMiddleware.cs",
+              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Middleware\\ExceptionsMiddleware.cs",
+              "RelativeToolTip": "Uninventory\\Middleware\\ExceptionsMiddleware.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAkwE0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T01:23:52.444Z",
+              "WhenOpened": "2025-05-09T20:07:05.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Uninventory\\Services\\AuthService.cs",
+              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\AuthService.cs",
+              "RelativeToolTip": "Uninventory\\Services\\AuthService.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAqwDMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T20:03:36.476Z",
               "EditorCaption": ""
             }
           ]
