@@ -31,7 +31,7 @@ namespace Uninventory.Services
         Phone = ur.Phone,
         Email = ur.Email,
         UserRoleId = ur.UserRole,
-        //UserRoleName = ur.UserRoleNavigation.Name,
+        UserRoleName = ur.UserRoleNavigation.Name,
         //UserPassword = ur.UserPassword,
         CreatedAt = ur.CreatedAt,
         Delete = ur.Delete
@@ -113,6 +113,7 @@ namespace Uninventory.Services
       user.StudentCode = userDTO.StudentCode;
       user.Phone = userDTO.Phone ?? user.Phone;
       user.Email = userDTO.Email ?? user.Email;
+      user.UserRole = userDTO.UserRoleId;
 
 
       await _context.SaveChangesAsync();
