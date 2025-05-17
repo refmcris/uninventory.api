@@ -50,7 +50,6 @@ namespace Uninventory.Services
         UserRole = add.UserRoleId,
         UserPassword = add.UserPassword
       };
-      Console.WriteLine(user);
       await _context.User.AddAsync(user);
 
       await _context.SaveChangesAsync();
