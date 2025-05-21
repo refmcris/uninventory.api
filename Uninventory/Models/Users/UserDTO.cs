@@ -11,7 +11,7 @@
     public string? Phone { get; set; }
 
     public string? Email { get; set; }
-    public int UserRoleId { get; set; }
+    public int UserRole { get; set; }
     public string? UserRoleName { get; set; }
     public string? UserPassword { get; set; }
     public DateTime? CreatedAt { get; set; }

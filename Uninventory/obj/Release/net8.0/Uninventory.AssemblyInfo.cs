@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Uninventory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f809e0aeb7603a2a7fb574d2b5f6c4acaba9ccd")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("Uninventory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Uninventory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

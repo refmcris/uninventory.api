@@ -30,7 +30,7 @@ namespace Uninventory.Services
         LastName = ur.LastName,
         Phone = ur.Phone,
         Email = ur.Email,
-        UserRoleId = ur.UserRole,
+        UserRole = ur.UserRole,
         UserRoleName = ur.UserRoleNavigation.Name,
         //UserPassword = ur.UserPassword,
         CreatedAt = ur.CreatedAt,
@@ -47,7 +47,7 @@ namespace Uninventory.Services
         LastName = add.LastName,
         FullName = add.FullName,
         Email = add.Email,
-        UserRole = add.UserRoleId,
+        UserRole = add.UserRole,
         UserPassword = add.UserPassword
       };
       Console.WriteLine(user);
@@ -55,10 +55,13 @@ namespace Uninventory.Services
 
       await _context.SaveChangesAsync();
 
-      return ToUserDTO(user);
+      // Cargar la relación manualmente
+      await _context.Entry(user)
+        .Reference(u => u.UserRoleNavigation)
+        .LoadAsync();
+
+     return ToUserDTO(user);
      
-
-
     }
     public async Task<IEnumerable<UserDTO>> GetUsers(int? UserId)
     {
@@ -113,7 +116,7 @@ namespace Uninventory.Services
       user.StudentCode = userDTO.StudentCode;
       user.Phone = userDTO.Phone ?? user.Phone;
       user.Email = userDTO.Email ?? user.Email;
-      user.UserRole = userDTO.UserRoleId;
+      user.UserRole = userDTO.UserRole;
 
 
       await _context.SaveChangesAsync();
