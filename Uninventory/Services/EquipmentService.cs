@@ -66,7 +66,7 @@ namespace Uninventory.Services
     public async Task<IEnumerable<EquipmentDTO>> GetEquipments(int? EquipmentId)
     {
       var query = _context.Equipment
-        .Include(e => e.Category)
+        .Include(e => e.Category).Where(e => e.Status == "Available")
         .AsQueryable();
 
 

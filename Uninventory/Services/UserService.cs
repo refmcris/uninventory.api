@@ -34,7 +34,7 @@ namespace Uninventory.Services
         UserRoleName = ur.UserRoleNavigation.Name,
         //UserPassword = ur.UserPassword,
         CreatedAt = ur.CreatedAt,
-        Delete = ur.Delete
+        Delete = false
       };
     }
 
@@ -53,6 +53,10 @@ namespace Uninventory.Services
       await _context.User.AddAsync(user);
 
       await _context.SaveChangesAsync();
+
+      await _context.Entry(user)
+        .Reference(u => u.UserRoleNavigation)
+        .LoadAsync();
 
       return ToUserDTO(user);
      

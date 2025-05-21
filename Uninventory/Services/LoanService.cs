@@ -43,6 +43,13 @@ namespace Uninventory.Services
       };
       await _context.Loans.AddAsync(loan);
 
+
+      var equipment = await _context.Equipment.FindAsync(add.EquipmentId);
+      if (equipment != null)
+      {
+        equipment.Status = "in_loan"; 
+      }
+
       await _context.SaveChangesAsync();
 
       return ToLoanDTO(loan);
