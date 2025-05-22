@@ -56,13 +56,23 @@ namespace Uninventory.Services
     }
     public async Task<LoansDTO> UpdateLoan(int id)
     {
-      var loan = await _context.Loans.FirstOrDefaultAsync(l => l.LoanId == id);
+      var loan = await _context.Loans
+                     .Include(l => l.Equipment)
+                     .Include(l => l.User)
+                     .FirstOrDefaultAsync(l => l.LoanId == id);
 
-      if(loan == null)
+
+      if (loan == null)
       {
         throw new Exception("Loan not found");
       }
-      loan.Status = false;
+      loan.Status = true;
+
+      var equipment = await _context.Equipment.FindAsync(loan.EquipmentId);
+      if (equipment != null)
+      {
+        equipment.Status = "available";
+      }
 
       await _context.SaveChangesAsync();
       return ToLoanDTO(loan);
