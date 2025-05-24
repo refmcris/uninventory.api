@@ -3,27 +3,16 @@
   "WorkspaceRootPath": "E:\\Epic\\uninventory\\Uninventory\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\services\\loanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\services\\loanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\controllers\\equipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\controllers\\equipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\controllers\\loancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\controllers\\loancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\services\\equipmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\services\\equipmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Felipe\\AppData\\Local\\SourceServer\\7f288183a4cb411944b8904f3390ff34e93a1cc96ca7c528f6558f8d2ae50b35\\Uninventory\\Services\\LoanService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\models\\equipment\\loansdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\models\\equipment\\loansdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\interfaces\\iloanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\interfaces\\iloanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|e:\\epic\\uninventory\\uninventory\\uninventory\\interfaces\\iequipmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BD811B1-F7A1-4D64-8812-891E8D9EEB10}|Uninventory\\Uninventory.csproj|solutionrelative:uninventory\\interfaces\\iequipmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 228,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -45,78 +34,41 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EquipmentController.cs",
+              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Controllers\\EquipmentController.cs",
+              "RelativeDocumentMoniker": "Uninventory\\Controllers\\EquipmentController.cs",
+              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Controllers\\EquipmentController.cs",
+              "RelativeToolTip": "Uninventory\\Controllers\\EquipmentController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAADwvycAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T19:52:50.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Program.cs",
-              "RelativeDocumentMoniker": "Uninventory\\Program.cs",
-              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Program.cs",
-              "RelativeToolTip": "Uninventory\\Program.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAADwv0MAAAACAAAA",
+              "Title": "IEquipmentService.cs",
+              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Interfaces\\IEquipmentService.cs",
+              "RelativeDocumentMoniker": "Uninventory\\Interfaces\\IEquipmentService.cs",
+              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Interfaces\\IEquipmentService.cs",
+              "RelativeToolTip": "Uninventory\\Interfaces\\IEquipmentService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwsAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T22:36:18.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoansDTO.cs",
-              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Models\\Equipment\\LoansDTO.cs",
-              "RelativeDocumentMoniker": "Uninventory\\Models\\Equipment\\LoansDTO.cs",
-              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Models\\Equipment\\LoansDTO.cs",
-              "RelativeToolTip": "Uninventory\\Models\\Equipment\\LoansDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T22:29:07.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoanService.cs",
-              "DocumentMoniker": "C:\\Users\\Felipe\\AppData\\Local\\SourceServer\\7f288183a4cb411944b8904f3390ff34e93a1cc96ca7c528f6558f8d2ae50b35\\Uninventory\\Services\\LoanService.cs",
-              "ToolTip": "C:\\Users\\Felipe\\AppData\\Local\\SourceServer\\7f288183a4cb411944b8904f3390ff34e93a1cc96ca7c528f6558f8d2ae50b35\\Uninventory\\Services\\LoanService.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAAEQAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T22:27:48.457Z",
+              "WhenOpened": "2025-05-24T19:52:19.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LoanController.cs",
-              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Controllers\\LoanController.cs",
-              "RelativeDocumentMoniker": "Uninventory\\Controllers\\LoanController.cs",
-              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Controllers\\LoanController.cs",
-              "RelativeToolTip": "Uninventory\\Controllers\\LoanController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
+              "Title": "EquipmentService.cs",
+              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\EquipmentService.cs",
+              "RelativeDocumentMoniker": "Uninventory\\Services\\EquipmentService.cs",
+              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\EquipmentService.cs",
+              "RelativeToolTip": "Uninventory\\Services\\EquipmentService.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAwwE8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T22:15:13.284Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoanService.cs",
-              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\LoanService.cs",
-              "RelativeDocumentMoniker": "Uninventory\\Services\\LoanService.cs",
-              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Services\\LoanService.cs",
-              "RelativeToolTip": "Uninventory\\Services\\LoanService.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAwEQAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T03:06:18.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ILoanService.cs",
-              "DocumentMoniker": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Interfaces\\ILoanService.cs",
-              "RelativeDocumentMoniker": "Uninventory\\Interfaces\\ILoanService.cs",
-              "ToolTip": "E:\\Epic\\uninventory\\Uninventory\\Uninventory\\Interfaces\\ILoanService.cs",
-              "RelativeToolTip": "Uninventory\\Interfaces\\ILoanService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwgAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T03:06:05.179Z",
+              "WhenOpened": "2025-05-24T19:51:57.838Z",
               "EditorCaption": ""
             }
           ]

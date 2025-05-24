@@ -63,6 +63,22 @@ namespace Uninventory.Services
       return await GetEquipment(equipment.EquipmentId);
     }
 
+    public async Task<IEnumerable<EquipmentDTO>> GetEquipmentsByCategory(int? categoryId)
+    {
+      var query = _context.Equipment
+        .Include(e => e.Category).Where(e => e.Status == "Available")
+        .AsQueryable();
+
+
+      if (categoryId.HasValue)
+      {
+        query = query.Where(e => e.CategoryId == categoryId.Value);
+      }
+      var equipments = await query.ToListAsync();
+
+      return equipments.Select(ToEquipmentDTO).ToList();
+    }
+
     public async Task<IEnumerable<EquipmentDTO>> GetEquipments(int? EquipmentId)
     {
       var query = _context.Equipment
