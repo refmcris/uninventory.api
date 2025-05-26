@@ -40,6 +40,24 @@ namespace Uninventory.Services
 
     public async Task<UserDTO> AddUser(UserDTO add)
     {
+
+      bool studentCodeExists = await _context.User.AnyAsync(u => u.StudentCode == add.StudentCode);
+      if (studentCodeExists)
+      {
+        throw new ServiceException("Ya existe un usuario con ese código de estudiante.");
+      }
+      bool emailExists = await _context.User.AnyAsync(u => u.Email == add.Email);
+      if (emailExists)
+      {
+        throw new ServiceException("Ya existe un usuario con ese correo electrónico.");
+      }
+      bool phoneExists = await _context.User.AnyAsync(u => u.Phone == add.Phone);
+      if (phoneExists)
+      {
+        throw new ServiceException("Ya existe un usuario con ese número de teléfono.");
+      }
+
+
       var user = new User
       {
         StudentCode = add.StudentCode,
