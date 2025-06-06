@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Uninventory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6eafb160f82c41c204568062501767b19185fa4c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b0b01f4a273ac1d548dd3e33054b5d78a726d99")]
 [assembly: System.Reflection.AssemblyProductAttribute("Uninventory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Uninventory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

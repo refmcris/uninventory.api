@@ -14,5 +14,7 @@ namespace Uninventory.Interfaces
     public Task<UserDTO> DeleteUser(int UserId);
 
     public Task<UserDTO> userLogin(string email, UserDTO add);
+   
+    public Task<IEnumerable<UserDTO>> SearchUsersByName(string name);
   }
 }

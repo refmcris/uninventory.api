@@ -172,5 +172,17 @@ namespace Uninventory.Services
       return await GetUser(user.UserId);
     }
 
+    public async Task<IEnumerable<UserDTO>> SearchUsersByName(string name)
+    {
+      var query = _context.User
+        .Include(u => u.UserRoleNavigation)
+        .Where(u => EF.Functions.Like(u.FullName.ToLower(), $"%{name.ToLower()}%"));
+
+      var users = await query.ToListAsync();
+
+      return users.Select(ToUserDTO).ToList();
+    }
+
+
   }
 }
