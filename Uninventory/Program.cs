@@ -38,8 +38,7 @@ app.UseCors(builer =>
   builer
   .AllowAnyOrigin()
   .AllowAnyMethod()
-  .AllowAnyHeader()
-  .WithExposedHeaders("session-id");
+  .AllowAnyHeader();
 });
 
 
@@ -64,8 +63,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAnyOrigin");
 
 //middlewares
-app.UseMiddleware<ExceptionsMiddleware>();
-app.UseMiddleware<SessionMiddleware>();
+//app.UseMiddleware<ExceptionsMiddleware>();
+//app.UseMiddleware<SessionMiddleware>();
 
 
 app.UseAuthorization();
