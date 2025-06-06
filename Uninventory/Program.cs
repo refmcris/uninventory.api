@@ -64,8 +64,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAnyOrigin");
 
 //middlewares
-//app.UseMiddleware<ExceptionsMiddleware>();
-//app.UseMiddleware<SessionMiddleware>();
+app.UseMiddleware<ExceptionsMiddleware>();
+app.UseMiddleware<SessionMiddleware>();
 
 
 app.UseAuthorization();

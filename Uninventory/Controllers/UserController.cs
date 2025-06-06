@@ -54,6 +54,11 @@ namespace Uninventory.Controllers
       return await _userService.userLogin(email, add);
     }
 
+    [HttpGet("user/search/name")]
+    public async Task<IEnumerable<UserDTO>> SearchUsersByName([FromQuery] string name)
+    {
+      return await _userService.SearchUsersByName(name);
+    }
 
 
   }

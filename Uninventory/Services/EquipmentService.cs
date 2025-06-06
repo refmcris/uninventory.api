@@ -63,10 +63,26 @@ namespace Uninventory.Services
       return await GetEquipment(equipment.EquipmentId);
     }
 
+    public async Task<IEnumerable<EquipmentDTO>> GetEquipmentsByCategory(int? categoryId)
+    {
+      var query = _context.Equipment
+        .Include(e => e.Category).Where(e => e.Status == "available")
+        .AsQueryable();
+
+
+      if (categoryId.HasValue)
+      {
+        query = query.Where(e => e.CategoryId == categoryId.Value);
+      }
+      var equipments = await query.ToListAsync();
+
+      return equipments.Select(ToEquipmentDTO).ToList();
+    }
+
     public async Task<IEnumerable<EquipmentDTO>> GetEquipments(int? EquipmentId)
     {
       var query = _context.Equipment
-        .Include(e => e.Category)
+        .Include(e => e.Category).Where(e => e.Status == "available")
         .AsQueryable();
 
 
@@ -114,6 +130,18 @@ namespace Uninventory.Services
       return await GetEquipment(equipmentId); 
 
 
+    }
+
+    public async Task<IEnumerable<EquipmentDTO>> SearchByName(string name)
+    {
+      var lowerName = name.ToLower();
+
+      var equipments = await _context.Equipment
+          .Include(e => e.Category)
+          .Where(e => e.Name.ToLower().Contains(lowerName))
+          .ToListAsync();
+
+      return equipments.Select(ToEquipmentDTO).ToList();
     }
 
   }

@@ -34,12 +34,30 @@ namespace Uninventory.Services
         UserRoleName = ur.UserRoleNavigation.Name,
         //UserPassword = ur.UserPassword,
         CreatedAt = ur.CreatedAt,
-        Delete = ur.Delete
+        Delete = false
       };
     }
 
     public async Task<UserDTO> AddUser(UserDTO add)
     {
+
+      bool studentCodeExists = await _context.User.AnyAsync(u => u.StudentCode == add.StudentCode);
+      if (studentCodeExists)
+      {
+        throw new ServiceException("Ya existe un usuario con ese código de estudiante.");
+      }
+      bool emailExists = await _context.User.AnyAsync(u => u.Email == add.Email);
+      if (emailExists)
+      {
+        throw new ServiceException("Ya existe un usuario con ese correo electrónico.");
+      }
+      bool phoneExists = await _context.User.AnyAsync(u => u.Phone == add.Phone);
+      if (phoneExists)
+      {
+        throw new ServiceException("Ya existe un usuario con ese número de teléfono.");
+      }
+
+
       var user = new User
       {
         StudentCode = add.StudentCode,
@@ -50,10 +68,13 @@ namespace Uninventory.Services
         UserRole = add.UserRoleId,
         UserPassword = add.UserPassword
       };
-      Console.WriteLine(user);
       await _context.User.AddAsync(user);
 
       await _context.SaveChangesAsync();
+
+      await _context.Entry(user)
+        .Reference(u => u.UserRoleNavigation)
+        .LoadAsync();
 
       return ToUserDTO(user);
      
@@ -150,6 +171,18 @@ namespace Uninventory.Services
 
       return await GetUser(user.UserId);
     }
+
+    public async Task<IEnumerable<UserDTO>> SearchUsersByName(string name)
+    {
+      var query = _context.User
+        .Include(u => u.UserRoleNavigation)
+        .Where(u => EF.Functions.Like(u.FullName.ToLower(), $"%{name.ToLower()}%"));
+
+      var users = await query.ToListAsync();
+
+      return users.Select(ToUserDTO).ToList();
+    }
+
 
   }
 }
