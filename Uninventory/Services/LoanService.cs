@@ -52,6 +52,11 @@ namespace Uninventory.Services
 
       await _context.SaveChangesAsync();
 
+      loan = await _context.Loans
+        .Include(l => l.Equipment)
+        .Include(l => l.User)
+        .FirstOrDefaultAsync(l => l.LoanId == loan.LoanId);
+
       return ToLoanDTO(loan);
     }
     public async Task<LoansDTO> UpdateLoan(int id)
