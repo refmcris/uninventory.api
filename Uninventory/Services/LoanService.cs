@@ -71,7 +71,7 @@ namespace Uninventory.Services
       {
         throw new Exception("Loan not found");
       }
-      loan.Status = true;
+      loan.Status = false;
 
       var equipment = await _context.Equipment.FindAsync(loan.EquipmentId);
       if (equipment != null)
